@@ -12,7 +12,7 @@ const nextConfig = {
     // Tambahkan variabel lingkungan tambahan di sini jika diperlukan
   },
   // Opsi konfigurasi Next.js lainnya dapat ditambahkan di sini
-  distDir: "dist",
+  // distDir: "dist",
 };
 
 export default nextConfig;
