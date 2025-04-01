@@ -28,7 +28,6 @@ import {
 import { useState, useEffect } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 import { addDays } from "date-fns";
-import SimpleFooter from "@/components/layout/simple-footer";
 import { sendEmail } from "@/lib/send-email";
 import { MdEmail, MdWhatsapp } from "react-icons/md";
 import SpinnerLoader from "@/components/ui/loading-spiner";
