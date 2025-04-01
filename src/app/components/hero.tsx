@@ -28,7 +28,7 @@ export function Hero() {
       >
         <Flex flexDirection="column" gap={4} alignItems="center">
           <Text fontSize={{ base: "sm", md: "md" }} fontWeight="bold" color="white" textAlign="center">
-            {process.env.APP_NAME ?? "Master Silver Class"}
+            {process.env.APP_NAME ?? "A&G Salon"}
           </Text>
           <Text fontSize={{ base: "xl", md: "3xl" }} fontWeight="bold" color="white" textAlign="center">
             Rasakan Sentuhan Profesional

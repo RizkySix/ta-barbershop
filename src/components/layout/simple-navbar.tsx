@@ -10,7 +10,7 @@ export default function SimpleNavbar() {
       <Link href="/" display="flex" flexDirection="column" alignItems="center" textDecoration="none" _hover={{ textDecoration: 'none', color:'black' }}>
         <Image src='/logo.png' width="44px" height="56px" mx="auto" mb="1" />
           <Text textAlign="center" fontWeight="bold" fontSize={{ base: 'md', md: 'lg' }}>
-            {process.env.APP_NAME ?? "Master Silver Class"}
+            {process.env.APP_NAME ?? "A&G Salon"}
           </Text>
         </Link>
       </Box>

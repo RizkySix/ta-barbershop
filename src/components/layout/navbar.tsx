@@ -38,7 +38,7 @@ export default function Navbar() {
           <Link href={'/'}>
             <Image src='/logo.png' width="44px" height="56px" mx="auto" mb="1" />
             <Heading as="h5" textAlign="center" fontWeight="bold" fontSize={{ base: 'base', md: 'lg' }}>
-              {process.env.APP_NAME ?? "Master Silver Class"}
+              {process.env.APP_NAME ?? "A&G Salon"}
             </Heading>
           </Link>
         </Box>
