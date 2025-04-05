@@ -17,7 +17,9 @@ import {
   import { 
     GiBeard,       // Beard
     GiLipstick,    // Makeup
-    GiHairStrands, // Hair treatment
+    GiHairStrands,
+    GiBodyBalance,
+    GiHand, // Hair treatment
   } from 'react-icons/gi';
 
   import {
@@ -109,36 +111,28 @@ export function Services() {
   <List spacing={3}>
     {/* Hair Services */}
     <ListItem fontSize={{ base: "xs", lg: "md" }}>
-      <ListIcon as={FaCut} color="green.500" />
-      Potong & Styling Rambut (Pria & Wanita)
-    </ListItem>
-    <ListItem fontSize={{ base: "xs", lg: "md" }}>
       <ListIcon as={FaPalette} color="green.500" />
-      Pewarnaan & Highlight Rambut
+      Perawatan Rambut (Wanita)
     </ListItem>
     <ListItem fontSize={{ base: "xs", lg: "md" }}>
-      <ListIcon as={GiHairStrands} color="green.500" />
-      Treatment Rambut Premium
+      <ListIcon as={FaSmile} color="green.500" />
+      Perawatan Wajah (Wanita)
+    </ListItem>
+    <ListItem fontSize={{ base: "xs", lg: "md" }}>
+      <ListIcon as={GiHand} color="green.500" />
+      Perawatan Kulit & Body (Wanita)
     </ListItem>
 
     {/* Facial Services */}
     <ListItem fontSize={{ base: "xs", lg: "md" }}>
-      <ListIcon as={FaSmile} color="green.500" />
-      Perawatan Wajah
-    </ListItem>
-    <ListItem fontSize={{ base: "xs", lg: "md" }}>
-      <ListIcon as={GiBeard} color="green.500" />
-      Grooming Jenggot (Pria)
+      <ListIcon as={GiHairStrands} color="green.500" />
+          Treatment Lain (Wanita)
     </ListItem>
 
     {/* Additional Services */}
     <ListItem fontSize={{ base: "xs", lg: "md" }}>
-      <ListIcon as={GiLipstick} color="green.500" />
-      Layanan Makeup Profesional
-    </ListItem>
-    <ListItem fontSize={{ base: "xs", lg: "md" }}>
-      <ListIcon as={FaHand} color="green.500" />
-      Manicure & Pedicure
+      <ListIcon as={FaCut} color="green.500" />
+      Haircut Pria (Pria)
     </ListItem>
   </List>
 
@@ -153,149 +147,146 @@ export function Services() {
     <PopoverCloseButton />
     <PopoverBody p={4}>
       <Accordion allowToggle>
-        {/* Haircut Service */}
+
+        {/* Rambut Wanita */}
         <AccordionItem border="none" mb={3}>
-          <AccordionButton 
-            bg="green.50" 
-            _hover={{ bg: "green.100" }}
-            borderRadius="md"
-            px={4}
-            py={3}
-          >
+          <AccordionButton bg="pink.50" _hover={{ bg: "pink.100" }} borderRadius="md" px={4} py={3}>
             <Box flex="1" textAlign="left" display="flex" alignItems="center">
-              <Icon as={FaCut} color="green.500" mr={2} />
-              <Text fontSize={{ base: "xs", lg: "md" }} fontWeight="bold">Potong & Styling Rambut</Text>
-              <Badge ml={3} colorScheme="green">Mulai IDR 200k</Badge>
+              <Icon as={FaPalette} color="pink.500" mr={2} />
+              <Text fontWeight="bold" fontSize={{ base: "xs", lg: "md" }}>Perawatan Rambut (Wanita)</Text>
+              <Badge ml={3} colorScheme="pink">Start 35k</Badge>
             </Box>
             <AccordionIcon />
           </AccordionButton>
-          
           <AccordionPanel pb={4} px={2}>
             <List spacing={3}>
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaCut} color="green.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Potong Rambut Pria</Text>
-                  <Text fontSize={{ base: "xs", lg: "md" }} color="gray.600">Termasuk keramas & pijat kepala</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 200k</Text>
-              </ListItem>
-              
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaCut} color="green.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Potong Rambut Wanita</Text>
-                  <Text fontSize={{ base: "xs", lg: "md" }} color="gray.600">Pendek/sedang</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 250k-350k</Text>
-              </ListItem>
-              
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={GiHairStrands} color="green.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Styling (Blow/Curly)</Text>
-                </Box>
-                <Text fontWeight="bold">+IDR 150k</Text>
-              </ListItem>
+              {[
+                ["Cuci Catok", "IDR 35k"],
+                ["Haircut + Styling", "IDR 35k-50k"],
+                ["Smoothing Keratin", "IDR 150k-800k"],
+                ["Smoothing + Color", "IDR 300k-1jt"],
+                ["Hair Color", "IDR 75k-300k"]
+              ].map(([title, price]) => (
+                <ListItem display="flex" alignItems="center" key={title}>
+                  <ListIcon as={FaPalette} color="pink.300" />
+                  <Box flex="1"><Text fontWeight="bold">{title}</Text></Box>
+                  <Text fontWeight="bold">{price}</Text>
+                </ListItem>
+              ))}
             </List>
           </AccordionPanel>
         </AccordionItem>
 
-        {/* Coloring Service */}
+        {/* Wajah Wanita */}
         <AccordionItem border="none" mb={3}>
-          <AccordionButton 
-            bg="purple.50" 
-            _hover={{ bg: "purple.100" }}
-            borderRadius="md"
-            px={4}
-            py={3}
-          >
-            <Box flex="1" textAlign="left" display="flex" alignItems="center">
-              <Icon as={FaPalette} color="purple.500" mr={2} />
-              <Text fontWeight="bold" fontSize={{ base: "xs", lg: "md" }}>Pewarnaan Rambut</Text>
-              <Badge ml={3} colorScheme="purple">Mulai IDR 500k</Badge>
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-          
-          <AccordionPanel pb={4} px={2}>
-            <List spacing={3}>
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaPalette} color="purple.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Full Color</Text>
-                  <Text fontSize={{ base: "xs", lg: "md" }} color="gray.600">Tergantung panjang rambut</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 500k-1.2jt</Text>
-              </ListItem>
-              
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaPalette} color="purple.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Highlights</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 750k-1.5jt</Text>
-              </ListItem>
-              
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaPalette} color="purple.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Balayage/Ombre</Text>
-                  <Text fontSize={{ base: "xs", lg: "md" }} color="gray.600">Konsultasi gratis</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 1.5jt-2.5jt</Text>
-              </ListItem>
-            </List>
-          </AccordionPanel>
-        </AccordionItem>
-
-        {/* Facial Service */}
-        <AccordionItem border="none" mb={3}>
-          <AccordionButton 
-            bg="blue.50" 
-            _hover={{ bg: "blue.100" }}
-            borderRadius="md"
-            px={4}
-            py={3}
-          >
+          <AccordionButton bg="blue.50" _hover={{ bg: "blue.100" }} borderRadius="md" px={4} py={3}>
             <Box flex="1" textAlign="left" display="flex" alignItems="center">
               <Icon as={FaSmile} color="blue.500" mr={2} />
-              <Text fontWeight="bold" fontSize={{ base: "xs", lg: "md" }}>Perawatan Wajah</Text>
-              <Badge ml={3} colorScheme="blue">Mulai IDR 300k</Badge>
+              <Text fontWeight="bold" fontSize={{ base: "xs", lg: "md" }}>Perawatan Wajah (Wanita)</Text>
+              <Badge ml={3} colorScheme="blue">Start 35k</Badge>
             </Box>
             <AccordionIcon />
           </AccordionButton>
-          
           <AccordionPanel pb={4} px={2}>
             <List spacing={3}>
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={MdSpa} color="blue.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Facial Basic</Text>
-                  <Text fontSize={{ base: "xs", lg: "md" }} color="gray.600">Cleansing + Masker</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 300k</Text>
+              {[
+                ["Facial", "IDR 35k"],
+                ["Facial Detox", "IDR 65k"]
+              ].map(([title, price]) => (
+                <ListItem display="flex" alignItems="center" key={title}>
+                  <ListIcon as={MdSpa} color="blue.300" />
+                  <Box flex="1"><Text fontWeight="bold">{title}</Text></Box>
+                  <Text fontWeight="bold">{price}</Text>
+                </ListItem>
+              ))}
+            </List>
+          </AccordionPanel>
+        </AccordionItem>
+
+        {/* Kulit & Body Wanita */}
+        <AccordionItem border="none" mb={3}>
+          <AccordionButton bg="green.50" _hover={{ bg: "green.100" }} borderRadius="md" px={4} py={3}>
+            <Box flex="1" textAlign="left" display="flex" alignItems="center">
+              <Icon as={GiHand} color="green.500" mr={2} />
+              <Text fontWeight="bold" fontSize={{ base: "xs", lg: "md" }}>Perawatan Kulit & Body (Wanita)</Text>
+              <Badge ml={3} colorScheme="green">Start 50k</Badge>
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel pb={4} px={2}>
+            <List spacing={3}>
+              {[
+                ["Massage", "IDR 50k"],
+                ["Massage + Lulur", "IDR 85k"],
+                ["Massage + Lulur + Bleaching", "IDR 200k"],
+                ["Bleaching Full Body", "IDR 150k"]
+              ].map(([title, price]) => (
+                <ListItem display="flex" alignItems="center" key={title}>
+                  <ListIcon as={GiHand} color="green.300" />
+                  <Box flex="1"><Text fontWeight="bold">{title}</Text></Box>
+                  <Text fontWeight="bold">{price}</Text>
+                </ListItem>
+              ))}
+            </List>
+          </AccordionPanel>
+        </AccordionItem>
+
+        {/* Treatment Lain */}
+        <AccordionItem border="none" mb={3}>
+          <AccordionButton bg="purple.50" _hover={{ bg: "purple.100" }} borderRadius="md" px={4} py={3}>
+            <Box flex="1" textAlign="left" display="flex" alignItems="center">
+              <Icon as={GiHairStrands} color="purple.500" mr={2} />
+              <Text fontWeight="bold" fontSize={{ base: "xs", lg: "md" }}>Treatment Lain (Wanita)</Text>
+              <Badge ml={3} colorScheme="purple">Start 2k</Badge>
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel pb={4} px={2}>
+            <List spacing={3}>
+              {[
+                ["Eyelash Extension", "IDR 70k - 125k"],
+                ["Lash Lift + Tint", "IDR 70k"],
+                ["Nail Gel Kaki", "IDR 40k"],
+                ["Nail Gel Tangan", "IDR 50k"],
+                ["Acc/Art", "Start IDR 2k - 7k"],
+                ["Makeup Hairdo", "IDR 150k - 250k"]
+              ].map(([title, price]) => (
+                <ListItem display="flex" alignItems="center" key={title}>
+                  <ListIcon as={GiHairStrands} color="purple.300" />
+                  <Box flex="1"><Text fontWeight="bold">{title}</Text></Box>
+                  <Text fontWeight="bold">{price}</Text>
+                </ListItem>
+              ))}
+            </List>
+          </AccordionPanel>
+        </AccordionItem>
+
+        {/* Pria */}
+        <AccordionItem border="none" mb={3}>
+          <AccordionButton bg="gray.50" _hover={{ bg: "gray.100" }} borderRadius="md" px={4} py={3}>
+            <Box flex="1" textAlign="left" display="flex" alignItems="center">
+              <Icon as={FaCut} color="gray.600" mr={2} />
+              <Text fontWeight="bold" fontSize={{ base: "xs", lg: "md" }}>Haircut (Pria)</Text>
+              <Badge ml={3} colorScheme="gray">Start 25k</Badge>
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel pb={4} px={2}>
+            <List spacing={3}>
+              <ListItem display="flex" alignItems="center">
+                <ListIcon as={FaCut} color="gray.400" />
+                <Box flex="1"><Text fontWeight="bold">Haircut Pria</Text></Box>
+                <Text fontWeight="bold">IDR 25k</Text>
               </ListItem>
-              
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={MdSpa} color="blue.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Acne Treatment</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 450k</Text>
-              </ListItem>
-              
-              <ListItem display="flex" alignItems="center" fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={MdSpa} color="blue.300" />
-                <Box flex="1">
-                  <Text fontWeight="bold">Gold Facial</Text>
-                  <Text fontSize={{ base: "xs", lg: "md" }} color="gray.600">Dengan serum emas</Text>
-                </Box>
-                <Text fontWeight="bold">IDR 650k</Text>
+              <ListItem display="flex" alignItems="center">
+                <ListIcon as={FaCut} color="gray.400" />
+                <Box flex="1"><Text fontWeight="bold">Haircut + Keramas</Text></Box>
+                <Text fontWeight="bold">IDR 30k</Text>
               </ListItem>
             </List>
           </AccordionPanel>
         </AccordionItem>
+
       </Accordion>
     </PopoverBody>
   </PopoverContent>

@@ -17,7 +17,7 @@ export function About() {
     }, []);
     
     return (
-        <Box width="100%" position="relative" my={{ base: 11, lg: 24 }} px={{ base: 4, lg: 11 }}>
+        <Box id="#about" width="100%" position="relative" my={{ base: 11, lg: 24 }} px={{ base: 4, lg: 11 }}>
             <Box display={{ lg: "block" }}>
                 <Box float={{ lg: "left" }} width={{ lg: "50%" }} mb={{base:50, lg:0}}>
                     <Img data-aos="fade-up-right" src="/house.jpg" alt="hero-img" height={{ lg: "100vh" }} width="100%" objectFit="cover" />

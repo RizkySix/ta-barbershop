@@ -1,15 +1,13 @@
 const galleriesData = [
-  ['/galleries/g37.jpeg', '/galleries/g38.jpeg', '/galleries/g39.jpeg', '/galleries/g31.jpeg'],
-  ['/galleries/g33.jpeg', '/galleries/g34.jpeg', '/galleries/g35.jpeg', '/galleries/g36.jpeg'],
-  ['/galleries/g29.jpeg', '/galleries/g30.jpeg', '/galleries/g31.jpeg', '/galleries/g32.jpeg'],
-  ['/galleries/g25.jpeg', '/galleries/g26.jpeg', '/galleries/g27.jpeg', '/galleries/g28.jpeg'],
-    ['/galleries/g1.jpeg', '/galleries/g2.jpeg', '/galleries/g3.jpeg', '/galleries/g4.jpeg'],
-    ['/galleries/g5.jpeg', '/galleries/g6.jpg', '/galleries/g7.jpeg', '/galleries/g8.jpeg'],
-    ['/galleries/g9.jpeg', '/galleries/g10.jpeg', '/galleries/g11.jpeg', '/galleries/g12.jpeg'],
-    ['/galleries/g13.jpeg', '/galleries/g14.jpeg', '/galleries/g15.jpeg', '/galleries/g16.jpeg'],
-    ['/galleries/g17.jpeg', '/galleries/g18.jpeg', '/galleries/g19.jpeg', '/galleries/g20.jpeg'],
-    ['/galleries/g21.jpeg', '/galleries/g22.jpeg', '/galleries/g23.jpg', '/galleries/g24.jpg'],
-  ];
-  
+  ['/galleries/testimoni 1.jpeg', '/galleries/testimoni 2.jpeg', '/galleries/testimoni 3.jpeg', '/galleries/testimoni 4.jpeg'],
+  ['/galleries/testimoni 5.jpeg', '/galleries/testimoni 6.jpeg', '/galleries/testimoni 7.jpeg', '/galleries/testimoni 8.jpeg'],
+  ['/galleries/testimoni 9.jpeg', '/galleries/testimoni 10.jpeg', '/galleries/testimoni 11.jpeg', '/galleries/testimoni 12.jpeg'],
+  ['/galleries/testimoni 13.jpeg', '/galleries/testimoni 14.jpeg', '/galleries/testimoni 15.jpeg', '/galleries/testimoni 16.jpeg'],
+  ['/galleries/testimoni 17.jpeg', '/galleries/testimoni 18.jpeg', '/galleries/testimoni 19.jpeg', '/galleries/testimoni 20.jpeg'],
+  ['/galleries/testimoni 21.jpeg', '/galleries/testimoni 22.jpeg', '/galleries/testimoni 23.jpeg', '/galleries/testimoni 24.jpeg'],
+  ['/galleries/testimoni 25.jpeg', '/galleries/testimoni 26.jpeg', '/galleries/testimoni 27.jpeg', '/galleries/testimoni 28.jpeg'],
+  ['/galleries/testimoni 29.jpeg', '/galleries/testimoni 30.jpeg', '/galleries/testimoni 31.jpeg', '/galleries/testimoni 32.jpeg'],
+];
 
-export { galleriesData }
+export { galleriesData };
+

@@ -26,11 +26,10 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import Datepicker from "react-tailwindcss-datepicker";
-import { addDays } from "date-fns";
-import { sendEmail } from "@/lib/send-email";
-import { MdEmail, MdWhatsapp } from "react-icons/md";
-import SpinnerLoader from "@/components/ui/loading-spiner";
+import { MdDiscount, MdEmail, MdPeople, MdWhatsapp } from "react-icons/md";
+import { RequestActionApi } from "@/app/action/action";
+import { useRouter } from "next/navigation";
+import PromoModal from "./promo-modal";
 
 export function Form() {
   const avatars = [
@@ -56,160 +55,114 @@ export function Form() {
     },
   ];
 
-  const [value, setValue] = useState({
-    startDate: null,
-    endDate: null,
-  });
-
   const [dataForm, setDataForm] = useState({
     name: "",
-    email: "",
-    date: "",
-    person: 1,
-    time: "",
-    hotel: "",
-    sortMessage: "",
-    transport: false,
+    phone: "",
+    address: "",
   });
 
-  const handleValueChange = (newValue: any) => {
-    setValue(newValue);
-    setDataForm((prevDataForm) => ({
-      ...prevDataForm,
-      date: new Date(newValue.startDate).toDateString(),
-    }));
-  };
-
-  const handleInputChange = (e: any) => {
+ 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+  
     setDataForm({
       ...dataForm,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
-  const handleSwitchChange = (e: any) => {
-    setDataForm({
-      ...dataForm,
-      transport: e.target.checked,
-    });
-  };
-
-  const [sendMailLoadStatus, setSendMailLoadStatus] = useState(false);
-
+  
   const toast = useToast();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const formData = new FormData(e.target);
 
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const person = formData.get("person");
-    const time = formData.get("time");
-    const hotel = formData.get("hotel") ?? "Not provided";
-    const sortMessage = formData.get("sortMessage") ?? "No note.";
-    const date = dataForm.date;
-    const transport = formData.get("transport") === "on" ? "Yes" : "No";
-    const message = `Hello,
-
-            I would like to book a spot in the Silver Class. Here are my details:
-
-            My name: ${name}
-            My email: ${email}
-            Number of person: ${person}
-            Preferred date: ${date}
-            Session time: ${time}
-            Hotel : ${hotel}
-            Transport Needed: ${transport} ${
-      transport == "Yes"
-        ? "(Available to pay 300k IDR transport from Ubud Central)"
-        : ""
+    const name = formData.get("name") as string;
+    const phone = formData.get("phone") as string;
+    const address = formData.get("address") as string;
+  
+    
+    if (!name || !phone || !address) {
+      toast({
+        title: "Semua field wajib diisi",
+        description: "Pastikan nama, nomor HP, dan alamat sudah lengkap.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
     }
-            Note: ${sortMessage}
-            Thank you!`;
+
+    if (!phone.startsWith("62")) {
+      toast({
+        title: "Format nomor salah",
+        description: "Nomor WhatsApp harus dimulai dengan 62, bukan 08 atau lainnya.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+    }
+  
+    // Lanjut kirim ke API jika semua field terisi
+    const result = await RequestActionApi.RegisterPhoneNumber({
+      name,
+      phone,
+      address,
+    });
+
+    console.log(result)
+    if(result) {
+      if(result.success) {
+        toast({
+          title: "Registrasi Berhasil!",
+          description: "Nomor whatsapp didaftarkan, silahkan claim promo-promo kami!.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
+        return;
+  
+      }else {
+        toast({
+          title: "Registrasi gagal",
+          description: `${result.message}`,
+          status: "info",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
+        return;
+      }
+    }
+
+
+      toast({
+        title: "Terjadi kesaahan",
+        description: "Coba beberapa saat lagi!.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+  };
+
+  const router = useRouter()
+
+  const handleToChatBotWa = () => {
+    const message = "Hallo!"
     const whatsAppUrl = `https://wa.me/6285963108412?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsAppUrl, "_blank");
-  };
-
-  const sendMailSubmit = async (e: any) => {
-    setSendMailLoadStatus(true);
-
-    const name = dataForm.name;
-    const email = dataForm.email;
-    const date = dataForm.date;
-    const person = dataForm.person;
-    const time = dataForm.time;
-    const hotel = dataForm.hotel ?? "Not provided";
-    const sortMessage = dataForm.sortMessage ?? "No note.";
-    const transport = dataForm.transport
-      ? "Yes (Available to pay 300k IDR transport from Ubud Central)"
-      : "No";
-
-    if (!name || !email || !date || !person || !time) {
-      toast({
-        title: "Please fill the form!",
-        status: "warning",
-        duration: 5000,
-        position: "top",
-      });
-      setSendMailLoadStatus(false);
-      return;
-    }
-
-    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
-      toast({
-        title: "Invalid email format!",
-        status: "error",
-        duration: 5000,
-        position: "top",
-      });
-
-      setSendMailLoadStatus(false);
-      return;
-    }
-
-    //send mail
-    const mailSent = await sendEmail({
-      name: name,
-      email: email,
-      full_data: {
-        name: name,
-        email: email,
-        date: date,
-        person: person,
-        hotel: hotel,
-        sortMessage: sortMessage,
-        time: time,
-
-        transport: transport,
-      },
-    });
-
-    setSendMailLoadStatus(false);
-    if (mailSent == "success") {
-      toast({
-        title: "Success! booking email sent",
-        description: "Our admin will contact you soon!",
-        status: "success",
-        duration: 9000,
-        position: "top",
-      });
-    } else {
-      toast({
-        title: "Something went wrong 🙄",
-        description: "Please try again or book via whatsapp!",
-        status: "error",
-        duration: 9000,
-        position: "top",
-      });
-    }
-  };
-
+  }
   return (
     <>
-      {sendMailLoadStatus && SpinnerLoader()}
       <section className="px-4 lg:px-11 lg:w-3/4 mx-auto lg:flex md:h-screen justify-center">
         <Box position={"relative"}>
           <Container
@@ -224,15 +177,15 @@ export function Form() {
                 lineHeight={1.1}
                 fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
               >
-                Practicing The Best Silver Class In Bali{" "}
+                Promo menarik kami untuk anda{" "}
                 <Text
                   as={"span"}
                   bgGradient="linear(to-r, red.400,pink.400)"
                   bgClip="text"
                 >
-                  &
+                  !!!
                 </Text>{" "}
-                With Professional Instructor
+                <PromoModal />
               </Heading>
               <Stack direction={"row"} spacing={4} align={"center"}>
                 <AvatarGroup>
@@ -306,7 +259,7 @@ export function Form() {
                   lineHeight={1.1}
                   fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
                 >
-                  Join now
+                  Bergabung dan Claim Promonya
                   <Text
                     as={"span"}
                     bgGradient="linear(to-r, red.400,pink.400)"
@@ -316,10 +269,8 @@ export function Form() {
                   </Text>
                 </Heading>
                 <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                  We’re excited to welcome you to our exclusive Silver Class!
-                  Join our elite group and enhance your skills in a premium
-                  learning environment. Don't miss the opportunity to elevate
-                  your expertise and achieve new heights!
+                Hai! A&G Salon bakal rutin ngadain promo-promo menarik buat semua layanan kita!
+                Mulai dari hair treatment sampai body care, semua bisa kamu nikmatin dengan harga spesial. Stay glowin’, stay hemat! Jangan lupa pantengin terus info promo dari kita ya ✨
                 </Text>
               </Stack>
               <Box as={"form"} mt={0} onSubmit={handleSubmit}>
@@ -330,7 +281,7 @@ export function Form() {
                   >
                     <GridItem colSpan={1}>
                       <Input
-                        placeholder="Your name"
+                        placeholder="Nama kamu"
                         name="name"
                         bg={"white"}
                         required
@@ -345,28 +296,12 @@ export function Form() {
                     </GridItem>
                     <GridItem colSpan={1}>
                       <Input
-                        placeholder="Your email"
-                        type="email"
-                        name="email"
-                        required
+                        placeholder="Whatsapp ex: 6287762xxx"
+                        name="phone"
                         bg={"white"}
+                        required
                         border={0}
-                        color={"gray.500"}
-                        _placeholder={{
-                          color: "gray.500",
-                          fontSize: { base: "14px", md: "16px", lg: "16px" },
-                        }}
-                        onChange={handleInputChange}
-                      />
-                    </GridItem>
-                    <GridItem colSpan={1}>
-                      <Input
-                        placeholder="Number of person"
                         type="number"
-                        name="person"
-                        required
-                        bg={"white"}
-                        border={0}
                         color={"gray.500"}
                         _placeholder={{
                           color: "gray.500",
@@ -375,70 +310,12 @@ export function Form() {
                         onChange={handleInputChange}
                       />
                     </GridItem>
-                    <GridItem colSpan={1}>
-                      <Datepicker
-                        asSingle={true}
-                        useRange={false}
-                        minDate={addDays(new Date(), 1)}
-                        value={value}
-                        onChange={handleValueChange}
-                        placeholder="Select date"
-                        inputClassName={
-                          HelperFunc.IsMobile()
-                            ? "w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-[14px]"
-                            : "w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-[16px]"
-                        }
-                      />
-                    </GridItem>
-                    <GridItem colSpan={1}>
-                      <Box
-                        as={Select}
-                        required
-                        name="time"
-                        placeholder="Choose session time"
-                        bg={"white"}
-                        border={0}
-                        color={"gray.500"}
-                        sx={{
-                          color: "gray.500",
-                          fontSize: { base: "14px", md: "16px", lg: "16px" },
-                        }}
-                        onChange={handleInputChange}
-                      >
-                        <option value="9.00 am - 11.00 am">
-                          9.00 am - 11.00 am
-                        </option>
-                        <option value="11.00 am - 1.00 pm">
-                          11.00 am - 1.00 pm
-                        </option>
-                        <option value="2.00 pm - 4.00 pm">
-                          2.00 pm - 4.00 pm
-                        </option>
-                        <option value="4.00 pm - 6.00 pm">
-                          4.00 pm - 6.00 pm
-                        </option>
-                      </Box>
-                    </GridItem>
-                    <GridItem colSpan={1}>
-                      <Input
-                        placeholder="Hotel name (Optional)"
-                        type="text"
-                        name="hotel"
-                        bg={"white"}
-                        border={0}
-                        color={"gray.500"}
-                        _placeholder={{
-                          color: "gray.500",
-                          fontSize: { base: "14px", md: "16px", lg: "16px" },
-                        }}
-                        onChange={handleInputChange}
-                      />
-                    </GridItem>
+                
                     <GridItem colSpan={{ base: 1, md: 2 }}>
                       <Input
-                        placeholder="Sort message (Optional)"
+                        placeholder="Alamat kamu"
                         type="text"
-                        name="sortMessage"
+                        name="address"
                         bg={"white"}
                         border={0}
                         color={"gray.500"}
@@ -450,24 +327,29 @@ export function Form() {
                       />
                     </GridItem>
                   </Grid>
-                  <div className="flex items-center">
-                    <FormLabel htmlFor="email-alerts" mb="0">
-                      Include transport?
-                    </FormLabel>
-                    <Switch
-                      id="email-alerts"
-                      name="transport"
-                      onChange={handleSwitchChange}
-                    />
-                  </div>
+                 
                 </Stack>
+                <Button
+                  type="submit"
+                  mt={5}
+                  w={"full"}
+                  leftIcon={<MdPeople />}
+                  colorScheme="whatsapp"
+                  variant="outline"
+                  borderColor="#0118D8"
+                  color="#0118D8"
+                  _hover={{ bgColor: "#1B56FD" }}
+                >
+                  <span className="text-xs lg:text-base">Daftarkan</span>
+                </Button>
+
                 <p className="py-2 text-xs md:text-sm italic">
-                  *For additional details, please provide by yourself on
-                  WhatsApp chat!
+                  *Selanjutnya kamu ke aksi-aksi berikut!
                 </p>
 
                 <Button
-                  type="submit"
+                onClick={() => handleToChatBotWa()}
+                  type="button"
                   mt={5}
                   w={"full"}
                   leftIcon={<MdWhatsapp />}
@@ -477,7 +359,7 @@ export function Form() {
                   color="#25D366"
                   _hover={{ bgColor: "#E6F4E6" }}
                 >
-                  <span className="text-xs lg:text-base">Book now</span>
+                  <span className="text-xs lg:text-base">Chat bot kami</span>
                 </Button>
 
                 <Flex align="center" my={4}>
@@ -488,24 +370,12 @@ export function Form() {
                     color={useColorModeValue("gray.600", "gray.300")}
                     whiteSpace="nowrap"
                   >
-                    Or
+                    Atau
                   </Text>
                   <Divider borderColor="gray.300" />
                 </Flex>
 
-                <Button
-                  onClick={sendMailSubmit}
-                  mt={0}
-                  w={"full"}
-                  leftIcon={<MdEmail />}
-                  colorScheme="red"
-                  variant="outline"
-                  borderColor="#D44638"
-                  color="#D44638"
-                  _hover={{ bgColor: "#FBEAEA" }}
-                >
-                  <span className="text-xs lg:text-base">Book via Email</span>
-                </Button>
+                <PromoModal />
               </Box>
               form
             </Stack>

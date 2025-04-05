@@ -16,12 +16,12 @@ export default function BookingForm() {
         <Hero />
         </div>
 
-        <div id='owner' className="content flex flex-col gap-14 lg:gap-28">
-            <div className="owner">
+        <div className="content flex flex-col gap-14 lg:gap-28">
+            <div id="whyus">
               <Owner />
             </div>
 
-            <div className="galleries">
+            <div id="testimoni">
               <Galleries />
             </div>
         </div>
