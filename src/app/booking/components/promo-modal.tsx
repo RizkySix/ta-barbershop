@@ -127,7 +127,6 @@ const PromoModal = () => {
           <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={6}>
         {promos.length > 0 ? (
             promos.map((promo) => {
-            const isNotYetActive = new Date(promo.StartDate) > new Date();
 
             return (
                 <Box
@@ -149,17 +148,17 @@ const PromoModal = () => {
                     rounded="md"
                     mb={2}
                     className="bg-pink-50"
-                    isDisabled={isNotYetActive}
+    
                 />
 
                 <Button
                     size="sm"
-                    colorScheme={isNotYetActive ? "gray" : "pink"}
+                    colorScheme={"pink"}
                     w="full"
                     onClick={() => handleClaim(promo.ID, promo.Name)}
-                    isDisabled={isNotYetActive}
+          
                 >
-                    {isNotYetActive ? "Belum Aktif" : "Klaim Sekarang"}
+                    {"Klaim Sekarang"}
                 </Button>
                 </Box>
             );
