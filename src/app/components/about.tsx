@@ -20,7 +20,7 @@ export function About() {
         <Box id="#about" width="100%" position="relative" my={{ base: 11, lg: 24 }} px={{ base: 4, lg: 11 }}>
             <Box display={{ lg: "block" }}>
                 <Box float={{ lg: "left" }} width={{ lg: "50%" }} mb={{base:50, lg:0}}>
-                    <Img data-aos="fade-up-right" src="/house.jpg" alt="hero-img" height={{ lg: "100vh" }} width="100%" objectFit="cover" />
+                    <Img data-aos="fade-up-right" src="/hero-place1.jpeg" alt="hero-img" height={{ lg: "100vh" }} width="100%" objectFit="cover" />
                 </Box>
 
                 <Box
@@ -40,7 +40,7 @@ export function About() {
                         dengan teknik terkini dan produk premium. Tim stylist profesional kami siap membantu Anda 
                         tampil percaya diri dengan gaya yang personal dan sesuai kebutuhan.</Text>
                     </Box>
-                    <Img data-aos="fade-up-left" src="/utility.jpeg" alt="hero-img" height={{ base: "400px", lg: "700px" }} width="100%" objectFit="cover" />
+                    <Img data-aos="fade-up-left" src="/hero-place3.jpeg" alt="hero-img" height={{ base: "400px", lg: "700px" }} width="100%" objectFit="cover" />
                     {/* <FadeInImage src="/neckles.jpg" alt="hero-img" className="w-full h-[400px] lg:h-[700px] object-cover" /> */}
                     <Box width={{ base: "100%", md: "50%" }} display={{ lg: "none" }}>
                         <Heading as="h4" fontSize="sm" fontWeight="bold" lineHeight="9">Kenapa Bersama Kami?</Heading>

@@ -6,7 +6,7 @@ import { Advatages } from "./advantages"
 export function Hero() {
   return (
     <Box position="relative" width="100%" height="100vh" overflow="hidden">
-      <Img src="/hero-people.jpeg" alt="hero-img" objectFit="cover" width="100%" height="100%" />
+      <Img src="/hero-place2.jpeg" alt="hero-img" objectFit="cover" width="100%" height="100%" />
 
       <Box
         position="absolute"

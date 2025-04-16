@@ -76,7 +76,7 @@ export default function Navbar() {
         },
         {
           tag: "#testimoni",
-          title: "Galleries"
+          title: "Gallery"
         },
       ]);
     }
@@ -137,7 +137,7 @@ export default function Navbar() {
         <TabList bg="white">
           <Tab fontSize={{ base: 'sm', md: 'md' }}><span>Siapa Kami</span></Tab>
           <Tab fontSize={{ base: 'sm', md: 'md' }}><span>Promo</span></Tab>
-          <Tab fontSize={{ base: 'sm', md: 'md' }}><span>Galleries</span></Tab>
+          <Tab fontSize={{ base: 'sm', md: 'md' }}><span>Galleri</span></Tab>
         </TabList>
       </Tabs>
 
