@@ -68,6 +68,8 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { FaHand } from "react-icons/fa6";
+import { HoverAStyle, HoverButtonStyle } from "@/lib/style";
+import { ButtonTemplate } from "@/components/ui/button";
 
 export function Services() {
   const router = useRouter();
@@ -125,7 +127,7 @@ export function Services() {
       )}
       <Box width="100%" position="relative" px={{ base: 0, lg: 11 }}>
         <Box display={{ lg: "block" }} className="clearfix">
-          <Box float={{ lg: "left" }} width={{ lg: "50%" }}>
+          <Box float={{ lg: "left" }} width={{ lg: "60%" }}>
             <Grid
               h="auto"
               w="100%"
@@ -136,9 +138,9 @@ export function Services() {
               <GridItem colSpan={4}>
                 <Img
                   data-aos="flip-right"
-                  src="/galleries/testimoni 26.jpeg"
+                  src="/service1.jpg"
                   alt="serv-img"
-                  height={{ base: "200px", lg: "full" }}
+                  height={{ base: "400px", lg: "700px" }}
                   width="100%"
                   objectFit="cover"
                 />
@@ -146,9 +148,9 @@ export function Services() {
               <GridItem colSpan={3}>
                 <Img
                   data-aos="flip-right"
-                  src="/galleries/testimoni 27.jpeg"
+                    src="/service2.jpg"
                   alt="serv-img"
-                  height={{ base: "200px", lg: "full" }}
+                  height={{ base: "400px", lg: "700px" }}
                   width="100%"
                   objectFit="cover"
                 />
@@ -156,9 +158,9 @@ export function Services() {
               <GridItem colSpan={7}>
                 <Img
                   data-aos="flip-left"
-                  src="/galleries/testimoni 1.jpeg"
+                    src="/service3.jpg"
                   alt="serv-img"
-                  height="md"
+                  height={{base: "sm", md: "md"}}
                   width="100%"
                   objectFit="cover"
                 />
@@ -169,7 +171,7 @@ export function Services() {
           <Box
             float={{ lg: "right" }}
             mt={{ base: 12, lg: "20%" }}
-            width={{ lg: "33.33%" }}
+            width={{ lg: "30%" }}
             px={{ base: 6, lg: 0 }}
             display="flex"
             flexDirection="column"
@@ -189,27 +191,27 @@ export function Services() {
             <List spacing={3}>
               {/* Hair Services */}
               <ListItem fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaPalette} color="green.500" />
+                <ListIcon as={FaPalette} color="#b0662c" />
                 Perawatan Rambut (Wanita)
               </ListItem>
               <ListItem fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaSmile} color="green.500" />
+                <ListIcon as={FaSmile} color="#b0662c" />
                 Perawatan Wajah (Wanita)
               </ListItem>
               <ListItem fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={GiHand} color="green.500" />
+                <ListIcon as={GiHand} color="#b0662c" />
                 Perawatan Kulit & Body (Wanita)
               </ListItem>
 
               {/* Facial Services */}
               <ListItem fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={GiHairStrands} color="green.500" />
+                <ListIcon as={GiHairStrands} color="#b0662c" />
                 Treatment Lain (Wanita)
               </ListItem>
 
               {/* Additional Services */}
               <ListItem fontSize={{ base: "xs", lg: "md" }}>
-                <ListIcon as={FaCut} color="green.500" />
+                <ListIcon as={FaCut} color="#b0662c" />
                 Haircut Pria (Pria)
               </ListItem>
             </List>
@@ -221,7 +223,7 @@ export function Services() {
                   cursor="pointer"
                   fontSize={{ base: "xs", lg: "md" }}
                   textDecoration="underline"
-                  _hover={{ color: "green.500" }}
+                  _hover={HoverAStyle}
                 >
                   Lihat Detail Layanan & Harga
                 </Text>
@@ -239,8 +241,8 @@ export function Services() {
                     {/* Rambut Wanita */}
                     <AccordionItem border="none" mb={3}>
                       <AccordionButton
-                        bg="pink.50"
-                        _hover={{ bg: "pink.100" }}
+                        bg="gray.50"
+                        _hover={{ bg: "gray.100" }}
                         borderRadius="md"
                         px={4}
                         py={3}
@@ -251,14 +253,14 @@ export function Services() {
                           display="flex"
                           alignItems="center"
                         >
-                          <Icon as={FaPalette} color="pink.500" mr={2} />
+                          <Icon as={FaPalette} color="#b0662c" mr={2} />
                           <Text
                             fontWeight="bold"
                             fontSize={{ base: "xs", lg: "md" }}
                           >
                             Perawatan Rambut (Wanita)
                           </Text>
-                          <Badge ml={3} colorScheme="pink">
+                          <Badge ml={3} colorScheme="gray">
                             Start 35k
                           </Badge>
                         </Box>
@@ -278,7 +280,7 @@ export function Services() {
                               alignItems="center"
                               key={title}
                             >
-                              <ListIcon as={FaPalette} color="pink.300" />
+                              <ListIcon as={FaPalette} color="#b0662c" />
                               <Box flex="1">
                                 <Text fontWeight="bold">{title}</Text>
                               </Box>
@@ -292,8 +294,8 @@ export function Services() {
                     {/* Wajah Wanita */}
                     <AccordionItem border="none" mb={3}>
                       <AccordionButton
-                        bg="blue.50"
-                        _hover={{ bg: "blue.100" }}
+                         bg="gray.50"
+                         _hover={{ bg: "gray.100" }}
                         borderRadius="md"
                         px={4}
                         py={3}
@@ -304,14 +306,14 @@ export function Services() {
                           display="flex"
                           alignItems="center"
                         >
-                          <Icon as={FaSmile} color="blue.500" mr={2} />
+                          <Icon as={FaSmile} color="#b0662c" mr={2} />
                           <Text
                             fontWeight="bold"
                             fontSize={{ base: "xs", lg: "md" }}
                           >
                             Perawatan Wajah (Wanita)
                           </Text>
-                          <Badge ml={3} colorScheme="blue">
+                          <Badge ml={3} colorScheme="gray">
                             Start 35k
                           </Badge>
                         </Box>
@@ -328,7 +330,7 @@ export function Services() {
                               alignItems="center"
                               key={title}
                             >
-                              <ListIcon as={MdSpa} color="blue.300" />
+                              <ListIcon as={MdSpa} color="#b0662c" />
                               <Box flex="1">
                                 <Text fontWeight="bold">{title}</Text>
                               </Box>
@@ -342,8 +344,8 @@ export function Services() {
                     {/* Kulit & Body Wanita */}
                     <AccordionItem border="none" mb={3}>
                       <AccordionButton
-                        bg="green.50"
-                        _hover={{ bg: "green.100" }}
+                        bg="gray.50"
+                        _hover={{ bg: "gray.100" }}
                         borderRadius="md"
                         px={4}
                         py={3}
@@ -354,14 +356,14 @@ export function Services() {
                           display="flex"
                           alignItems="center"
                         >
-                          <Icon as={GiHand} color="green.500" mr={2} />
+                          <Icon as={GiHand} color="#b0662c" mr={2} />
                           <Text
                             fontWeight="bold"
                             fontSize={{ base: "xs", lg: "md" }}
                           >
                             Perawatan Kulit & Body (Wanita)
                           </Text>
-                          <Badge ml={3} colorScheme="green">
+                          <Badge ml={3} colorScheme="gray">
                             Start 50k
                           </Badge>
                         </Box>
@@ -380,7 +382,7 @@ export function Services() {
                               alignItems="center"
                               key={title}
                             >
-                              <ListIcon as={GiHand} color="green.300" />
+                              <ListIcon as={GiHand} color="#b0662c" />
                               <Box flex="1">
                                 <Text fontWeight="bold">{title}</Text>
                               </Box>
@@ -394,8 +396,8 @@ export function Services() {
                     {/* Treatment Lain */}
                     <AccordionItem border="none" mb={3}>
                       <AccordionButton
-                        bg="purple.50"
-                        _hover={{ bg: "purple.100" }}
+                        bg="gray.50"
+                        _hover={{ bg: "gray.100" }}
                         borderRadius="md"
                         px={4}
                         py={3}
@@ -406,14 +408,14 @@ export function Services() {
                           display="flex"
                           alignItems="center"
                         >
-                          <Icon as={GiHairStrands} color="purple.500" mr={2} />
+                          <Icon as={GiHairStrands} color="#b0662c" mr={2} />
                           <Text
                             fontWeight="bold"
                             fontSize={{ base: "xs", lg: "md" }}
                           >
                             Treatment Lain (Wanita)
                           </Text>
-                          <Badge ml={3} colorScheme="purple">
+                          <Badge ml={3} colorScheme="gray">
                             Start 2k
                           </Badge>
                         </Box>
@@ -434,7 +436,7 @@ export function Services() {
                               alignItems="center"
                               key={title}
                             >
-                              <ListIcon as={GiHairStrands} color="purple.300" />
+                              <ListIcon as={GiHairStrands} color="#b0662c" />
                               <Box flex="1">
                                 <Text fontWeight="bold">{title}</Text>
                               </Box>
@@ -460,7 +462,7 @@ export function Services() {
                           display="flex"
                           alignItems="center"
                         >
-                          <Icon as={FaCut} color="gray.600" mr={2} />
+                          <Icon as={FaCut} color="#b0662c" mr={2} />
                           <Text
                             fontWeight="bold"
                             fontSize={{ base: "xs", lg: "md" }}
@@ -476,14 +478,14 @@ export function Services() {
                       <AccordionPanel pb={4} px={2}>
                         <List spacing={3}>
                           <ListItem display="flex" alignItems="center">
-                            <ListIcon as={FaCut} color="gray.400" />
+                            <ListIcon as={FaCut} color="#b0662c" />
                             <Box flex="1">
                               <Text fontWeight="bold">Haircut Pria</Text>
                             </Box>
                             <Text fontWeight="bold">IDR 25k</Text>
                           </ListItem>
                           <ListItem display="flex" alignItems="center">
-                            <ListIcon as={FaCut} color="gray.400" />
+                            <ListIcon as={FaCut} color="#b0662c" />
                             <Box flex="1">
                               <Text fontWeight="bold">Haircut + Keramas</Text>
                             </Box>
@@ -506,18 +508,10 @@ export function Services() {
               >
                 Mulai dari IDR 200k
               </Text>
-              <Button
-                onClick={toBooking}
-                colorScheme="green"
-                variant="outline"
-                borderColor="#2F8F2F"
-                color="#2F8F2F"
-                _hover={{ bgColor: "#E6F4E6" }}
-                size={HelperFunc.IsMobile() ? "sm" : "md"}
-                leftIcon={<FaWhatsapp />}
-              >
-                <Text fontSize={{ base: "xs", lg: "md" }}>Pesan Sekarang</Text>
-              </Button>
+              <ButtonTemplate title="Pesan Sekarang" onClick={toBooking} icon={<FaWhatsapp />}>
+
+              </ButtonTemplate>
+             
             </Box>
           </Box>
         </Box>

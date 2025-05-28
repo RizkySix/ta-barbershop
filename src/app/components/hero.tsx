@@ -6,7 +6,7 @@ import { Advatages } from "./advantages"
 export function Hero() {
   return (
     <Box position="relative" width="100%" height="100vh" overflow="hidden">
-      <Img src="/hero-place2.jpeg" alt="hero-img" objectFit="cover" width="100%" height="100%" />
+      <Img src="/hero-about.jpg" alt="hero-img" objectFit="cover" width="100%" height="100%" />
 
       <Box
         position="absolute"
@@ -27,11 +27,11 @@ export function Hero() {
         width="100%"
       >
         <Flex flexDirection="column" gap={4} alignItems="center">
-          <Text fontSize={{ base: "sm", md: "md" }} fontWeight="bold" color="white" textAlign="center">
+     {/*      <Text fontSize={{ base: "sm", md: "md" }} fontWeight="bold" color="white" textAlign="center">
             {process.env.APP_NAME ?? "A&G Salon"}
-          </Text>
+          </Text> */}
           <Text fontSize={{ base: "xl", md: "3xl" }} fontWeight="bold" color="white" textAlign="center">
-            Rasakan Sentuhan Profesional
+            Beautify Your Beautify
           </Text>
           <Text fontSize={{ base: "xs", md: "md" }} fontWeight="bold" color="white" textAlign="center" textDecoration="underline" cursor="pointer">
             <Link href="#location">LOCATION</Link>

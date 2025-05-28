@@ -34,7 +34,7 @@ export function Owner() {
           <div className="house-img lg:float-left lg:w-1/2">
             <Img
               data-aos="fade-up-right"
-              src="/galleries/testimoni 33.jpeg"
+              src="/owner-gallery.jpg"
               alt="owner-img"
               className="lg:h-screen h-auto w-full object-cover"
             />

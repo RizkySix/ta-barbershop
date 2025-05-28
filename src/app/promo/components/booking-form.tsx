@@ -30,6 +30,8 @@ import { MdDiscount, MdEmail, MdPeople, MdWhatsapp } from "react-icons/md";
 import { RequestActionApi } from "@/app/action/action";
 import { useRouter } from "next/navigation";
 import PromoModal from "./promo-modal";
+import { ButtonTemplate } from "@/components/ui/button";
+import { HoverButtonStyle } from "@/lib/style";
 
 export function Form() {
   const avatars = [
@@ -329,6 +331,7 @@ export function Form() {
                   </Grid>
                  
                 </Stack>
+             
                 <Button
                   type="submit"
                   mt={5}
@@ -338,7 +341,7 @@ export function Form() {
                   variant="outline"
                   borderColor="#0118D8"
                   color="#0118D8"
-                  _hover={{ bgColor: "#1B56FD" }}
+                  _hover={HoverButtonStyle}
                 >
                   <span className="text-xs lg:text-base">Daftarkan</span>
                 </Button>
@@ -357,7 +360,7 @@ export function Form() {
                   variant="outline"
                   borderColor="#25D366"
                   color="#25D366"
-                  _hover={{ bgColor: "#E6F4E6" }}
+                  _hover={HoverButtonStyle}
                 >
                   <span className="text-xs lg:text-base">Chat bot kami</span>
                 </Button>

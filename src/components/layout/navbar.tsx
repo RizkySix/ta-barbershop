@@ -15,7 +15,6 @@ import {
   VStack,
   Link as ChakraLink,
 } from '@chakra-ui/react';
-import { FaBurger } from 'react-icons/fa6';
 import { MdMenu } from 'react-icons/md';
 
 export default function Navbar() {
@@ -57,7 +56,7 @@ export default function Navbar() {
     if (index === 0) {
       router.push('/');
     } else if(index === 1) {
-      router.push('/booking');
+      router.push('/promo');
     } else{
       router.push('/galleries');
     }
@@ -90,7 +89,7 @@ export default function Navbar() {
         {/* Header Section */}
         <Flex
           width="full"
-          height="112px"
+          height={{ base : "80px" , md: "112px"}}
           p="3"
           bg="white"
           borderBottom="1px"
@@ -118,15 +117,8 @@ export default function Navbar() {
               alignItems: 'center',
             }}
           >
-            <Image src="/logo.png" width="56px" height="56px" alt="Logo" />
-            <Heading
-              as="h5"
-              textAlign="center"
-              fontWeight="bold"
-              fontSize={{ base: 'base', md: 'lg' }}
-            >
-              {process.env.APP_NAME ?? 'A&G Salon'}
-            </Heading>
+            <Image src="/logo.png"  width={{ base: '60px', md: '80px' }}
+              height={{ base: '60px', md: '80px' }} alt="Logo" />
           </Link>
 
           {/* Tempat dummy biar logo tetap di tengah */}
@@ -134,11 +126,32 @@ export default function Navbar() {
         </Flex>
 
         {/* Tab List */}
-        <TabList bg="white">
-          <Tab fontSize={{ base: 'sm', md: 'md' }}><span>Siapa Kami</span></Tab>
-          <Tab fontSize={{ base: 'sm', md: 'md' }}><span>Promo</span></Tab>
-          <Tab fontSize={{ base: 'sm', md: 'md' }}><span>Galleri</span></Tab>
-        </TabList>
+        <TabList bg="white" color="black">
+        <Tab
+          roundedTopLeft={"none"}
+          fontSize={{ base: 'sm', md: 'md' }}
+          _selected={{ color: 'white', bg: '#b0662c' }}
+          _hover={{ bg: '#b0662c', color: 'white' }}
+        >
+          <span>Siapa Kami</span>
+        </Tab>
+        <Tab
+          fontSize={{ base: 'sm', md: 'md' }}
+          _selected={{ color: 'white', bg: '#b0662c' }}
+          _hover={{ bg: '#b0662c', color: 'white' }}
+        >
+          <span>Promo</span>
+        </Tab>
+        <Tab
+         roundedTopRight={"none"}
+          fontSize={{ base: 'sm', md: 'md' }}
+          _selected={{ color: 'white', bg: '#b0662c' }}
+          _hover={{ bg: '#b0662c', color: 'white' }}
+        >
+          <span>Galleri</span>
+        </Tab>
+      </TabList>
+
       </Tabs>
 
       {/* Drawer (Sidebar) */}

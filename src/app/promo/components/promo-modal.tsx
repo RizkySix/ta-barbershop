@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 import { RequestActionApi } from "@/app/action/action";
 import { PromoResponse } from "@/app/response/response";
 import { HelperFunc } from "@/lib/utils";
+import { HoverButtonStyle } from "@/lib/style";
 
 const PromoModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -110,7 +111,7 @@ const PromoModal = () => {
         variant="outline"
         borderColor="#D44638"
         color="#D44638"
-        _hover={{ bgColor: "#FBEAEA" }}
+        _hover={HoverButtonStyle}
         onClick={onOpen}
       >
         <span className="text-xs lg:text-base">Lihat promo kami</span>

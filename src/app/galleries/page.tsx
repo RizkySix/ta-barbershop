@@ -11,7 +11,7 @@ export default function BookingForm() {
     <>
      <Navbar />
 
-     <div className="py-2 md:py-3">
+     <div className="">
         <div className="hero  ">
         <Hero />
         </div>
