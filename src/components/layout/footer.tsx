@@ -17,7 +17,7 @@ import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 const Logo = (props: any) => {
   return (
-    <Image src='/logo.png' width={{ base: '48px', md: '64px' }} height={{ base: '64px', md: '80px' }} />
+    <Image src='/logo.png' width={{ base: '48px', md: '64px' }}  />
   );
 };
 
@@ -32,7 +32,7 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 export default function Footer() {
   return (
     <Box
-      mt={{base:16, md:24}}
+     mt={{base:"5%", md:"5%"}}
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
