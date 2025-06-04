@@ -21,7 +21,7 @@ import {
   
   export default function SimpleFooter() {
     return (
-        <Box mt={{base:"5%", md:"5%"}} py={10}>
+        <Box  mt={{base:"5%", md:"5%", lg: "30%", xl: "5%"}} py={10}>
         <Flex
           align={'center'}
           _before={{

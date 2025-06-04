@@ -31,7 +31,7 @@ export function Hero() {
             {process.env.APP_NAME ?? "A&G Salon"}
           </Text> */}
           <Text fontSize={{ base: "xl", md: "3xl" }} fontWeight="bold" color="white" textAlign="center">
-            Beautify Your Beautify
+            Beautify Your Beauty
           </Text>
           <Text fontSize={{ base: "xs", md: "md" }} fontWeight="bold" color="white" textAlign="center" textDecoration="underline" cursor="pointer">
             <Link href="#location">LOCATION</Link>

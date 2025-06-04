@@ -4,7 +4,7 @@ import "../globals.css";
 import { poppins } from "@/lib/global.fonts";
 
 export const metadata: Metadata = {
-  title: "Booking Form - Master Silver Class",
+  title: "A&G Salon - Promo Menarik",
   description: "Book your spot at Master Silver Class in Bali and join us to create unique and beautifully crafted silver jewelry. Experience the joy and excitement of making silver crafts with our expert instructors.",
   icons: {
     icon: '/logo.png',
