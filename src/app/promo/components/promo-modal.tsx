@@ -126,7 +126,7 @@ const PromoModal = () => {
           <ModalCloseButton />
           <ModalBody>
           <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={6}>
-        {promos.length > 0 ? (
+        {promos?.length > 0 ? (
             promos.map((promo) => {
 
             return (
