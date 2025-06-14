@@ -1,7 +1,7 @@
 import { ClaimPromoParamater, RegisterPhoneNumberParamater } from "../parameter/paramater";
 
 export class RequestActionApi {
-    static readonly BE_URL = "https://5cc0-103-190-47-55.ngrok-free.app"
+    static readonly BE_URL = "https://e533-103-190-47-55.ngrok-free.app"
 
     static async RegisterPhoneNumber(data: RegisterPhoneNumberParamater) {
         try {
