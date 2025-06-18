@@ -6,7 +6,7 @@ import Footer from "@/components/layout/footer";
 import SimpleFooter from "@/components/layout/simple-footer";
 
 
-export default function BookingForm() {
+export default function GalleryPage() {
   return (
     <>
      <Navbar />

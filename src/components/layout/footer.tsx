@@ -39,13 +39,13 @@ export default function Footer() {
         <SimpleGrid fontSize={{ base: 'xs', lg: 'sm' }} columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
           <Stack align={'flex-start'}>
             <ListHeader>Layanan</ListHeader>
-            <Link href={'#services'}>Rambut dan Wajah</Link>
+            <Link href={'/#services'}>Rambut dan Wajah</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>A&G Salon</ListHeader>
-            <Link href={'#about'}>Kenapa Memilih Kami</Link>
+            <Link href={'/#about'}>Kenapa Memilih Kami</Link>
             <Link href={'https://wa.me/6285963108412'}>Kontak</Link>
-            <Link href={'#location'}>Lokasi Kami</Link>
+            <Link href={'/#location'}>Lokasi Kami</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Ikuti Sosmed A&G Salon</ListHeader>

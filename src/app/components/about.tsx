@@ -23,10 +23,9 @@ export function About() {
                 {/* Bagian Gambar Kiri */}
                 <Box float={{ lg: "left" }} width={{ lg: "50%" }} mb={{ base: 50, lg: 0 }}>
                     <Img data-aos="fade-up-right" src="/about1.png" alt="hero-img" height={{ lg: "100vh" }} width="100%" objectFit="cover" />
-                     {/* 🎬 Sisipkan Video di sini */}
-                    <Box data-aos="fade-up">
+                    {/* <Box data-aos="fade-up">
                         <VideoCompanyProfile />
-                    </Box>
+                    </Box> */}
                 </Box>
 
                 {/* Konten Kanan + VIDEO */}
@@ -41,21 +40,21 @@ export function About() {
                     justifyContent="center"
                 >
                     {/* Deskripsi atas */}
-                    <Box width={{ lg: "75%" }} display={{ base: "none", lg: "block" }}>
+                    {/* <Box width={{ lg: "75%" }} display={{ base: "none", lg: "block" }}>
                         <Text fontSize="md">
                            A&G Salon hadir dengan konsep modern yang mengutamakan kenyamanan dan hasil maksimal. A&G salon berdiri sejak 2023 beralamat di jl.kebo iwa Banjar Wanasara kelod,Desa bongan,Tabanan, kami menghadirkan layanan lengkap dari ujung kepala hingga kaki untuk pria dan wanita dengan teknik terkini dan produk premium.
                         </Text>
-                    </Box>
+                    </Box> */}
 
                     {/* Gambar ke-2 */}
                     <Img data-aos="fade-up-left" src="/hero-place3.jpeg" alt="hero-img" height={{ base: "400px", lg: "700px" }} width="100%" objectFit="cover" />
 
                     {/* Deskripsi bawah (untuk mobile) */}
-                    <Box width={{ base: "100%", md: "50%" }} display={{ lg: "none" }}>
+                    {/* <Box width={{ base: "100%", md: "50%" }} display={{ lg: "none" }}>
                         <Text fontSize="xs">
                           A&G Salon hadir dengan konsep modern yang mengutamakan kenyamanan dan hasil maksimal. A&G salon berdiri sejak 2023 beralamat di jl.kebo iwa Banjar Wanasara kelod,Desa bongan,Tabanan, kami menghadirkan layanan lengkap dari ujung kepala hingga kaki untuk pria dan wanita dengan teknik terkini dan produk premium.
                         </Text>
-                    </Box>
+                    </Box> */}
                 </Box>
             </Box>
         </Box>

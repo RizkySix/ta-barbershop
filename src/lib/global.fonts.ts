@@ -1,4 +1,4 @@
-import { Inter, Poppins, Playfair_Display, Cormorant_Garamond, Edu_QLD_Beginner  } from "next/font/google";
+import { Inter, Poppins, Playfair_Display, Cormorant_Garamond, Edu_QLD_Beginner, Roboto, Roboto_Serif  } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -25,4 +25,10 @@ const edu = Edu_QLD_Beginner({
   variable: "--font-edu"
 });
 
-export {poppins,inter, playfair, cormorant, edu}
+const arial = Roboto_Serif({
+  subsets: ["latin"],
+  weight: ["400", "700"], // gunakan 400 utk normal, 700 utk tebal
+  variable: "--font-arial"
+});
+
+export {poppins,inter, playfair, cormorant, edu, arial}

@@ -27,8 +27,12 @@ export default function Navbar() {
       let pageIndex = 0
       if(pathName === "/") {
         pageIndex = 0
-      }else if(pathName === "/galleries") {
+      }else if(pathName === "/tentang-kami") {
+        pageIndex = 1
+      }else if(pathName === "/promo") {
         pageIndex = 2
+      }else if(pathName === "/galleries") {
+        pageIndex = 3
       }
      
       setPageIndex(pageIndex);
@@ -36,10 +40,6 @@ export default function Navbar() {
   }, []);
 
   const baseContent = [
-    {
-      tag:"#about",
-      title: "Siapa kami"
-    },
     {
       tag:"#services",
       title: "Layanan kami"
@@ -56,10 +56,12 @@ export default function Navbar() {
     if (index === 0) {
       router.push('/');
     } else if(index === 1) {
+      router.push('/tentang-kami');
+    } else if(index === 2) {
       router.push('/promo');
-    } else{
+    } else if(index === 3) {
       router.push('/galleries');
-    }
+    } 
   };
 
   useEffect(() => {
@@ -67,6 +69,17 @@ export default function Navbar() {
   
     if (pathName === '/') {
       setContent(baseContent);
+    } else if (pathName === "/tentang-kami") {
+      setContent([
+          {
+            tag: "#us",
+            title: "Tentang kami"
+          },
+          {
+            tag: "#video",
+            title: "Video profile"
+          },
+        ]);
     } else if (pathName === '/galleries') {
       setContent([
         {
@@ -127,30 +140,46 @@ export default function Navbar() {
 
         {/* Tab List */}
         <TabList bg="white" color="black">
-        <Tab
-          roundedTopLeft={"none"}
-          fontSize={{ base: 'sm', md: 'md' }}
-          _selected={{ color: 'white', bg: '#b0662c' }}
-          _hover={{ bg: '#b0662c', color: 'white' }}
-        >
-          <span>Siapa Kami</span>
-        </Tab>
-        <Tab
-          fontSize={{ base: 'sm', md: 'md' }}
-          _selected={{ color: 'white', bg: '#b0662c' }}
-          _hover={{ bg: '#b0662c', color: 'white' }}
-        >
-          <span>Promo</span>
-        </Tab>
-        <Tab
-         roundedTopRight={"none"}
-          fontSize={{ base: 'sm', md: 'md' }}
-          _selected={{ color: 'white', bg: '#b0662c' }}
-          _hover={{ bg: '#b0662c', color: 'white' }}
-        >
-          <span>Galleri</span>
-        </Tab>
-      </TabList>
+  <Tab
+    roundedTopLeft="none"
+    fontSize={{ base: 'xs', md: 'md' }}
+    px={{ base: 2, md: 4 }}
+    whiteSpace="nowrap"
+    _selected={{ color: 'white', bg: '#b0662c' }}
+    _hover={{ bg: '#b0662c', color: 'white' }}
+  >
+    <span>Home</span>
+  </Tab>
+  <Tab
+    fontSize={{ base: 'xs', md: 'md' }}
+    px={{ base: 2, md: 4 }}
+    whiteSpace="nowrap"
+    _selected={{ color: 'white', bg: '#b0662c' }}
+    _hover={{ bg: '#b0662c', color: 'white' }}
+  >
+    <span>Tentang Kami</span>
+  </Tab>
+  <Tab
+    fontSize={{ base: 'xs', md: 'md' }}
+    px={{ base: 2, md: 4 }}
+    whiteSpace="nowrap"
+    _selected={{ color: 'white', bg: '#b0662c' }}
+    _hover={{ bg: '#b0662c', color: 'white' }}
+  >
+    <span>Promo</span>
+  </Tab>
+  <Tab
+    roundedTopRight="none"
+    fontSize={{ base: 'xs', md: 'md' }}
+    px={{ base: 2, md: 4 }}
+    whiteSpace="nowrap"
+    _selected={{ color: 'white', bg: '#b0662c' }}
+    _hover={{ bg: '#b0662c', color: 'white' }}
+  >
+    <span>Galleri</span>
+  </Tab>
+</TabList>
+
 
       </Tabs>
 

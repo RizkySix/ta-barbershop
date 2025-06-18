@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { Providers } from './providers'
-import { cormorant, edu, playfair, poppins } from "@/lib/global.fonts";
+import { arial, cormorant, edu, playfair, poppins } from "@/lib/global.fonts";
 import Head from "next/head";
 
 
@@ -59,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode,
 }) {
   return (
-    <html lang='en' className={edu.variable}>
+    <html lang='en' className={arial.variable}>
       <body>
         <div >
         <Providers>{children}</Providers>

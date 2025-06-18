@@ -3,8 +3,8 @@ import { extendTheme } from "@chakra-ui/react";
 export const theme = extendTheme({
    
     fonts: {
-      heading: 'var(--font-edu)',
-      body: 'var(--font-edu)',
+      heading: 'var(--font-arial)',
+      body: 'var(--font-arial)',
     },
 
     //ini jika kita memakau edu font style
