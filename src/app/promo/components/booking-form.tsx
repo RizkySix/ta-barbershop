@@ -158,7 +158,7 @@ export function Form() {
 
   const handleToChatBotWa = () => {
     const message = "Hallo!"
-    const whatsAppUrl = `https://wa.me/6285963108412?text=${encodeURIComponent(
+    const whatsAppUrl = `https://wa.me/6282147223843?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsAppUrl, "_blank");

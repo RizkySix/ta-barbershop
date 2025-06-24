@@ -44,20 +44,20 @@ export default function Footer() {
           <Stack align={'flex-start'}>
             <ListHeader>A&G Salon</ListHeader>
             <Link href={'/#about'}>Kenapa Memilih Kami</Link>
-            <Link href={'https://wa.me/6285963108412'}>Kontak</Link>
+            <Link href={'https://wa.me/6282147223843'}>Kontak</Link>
             <Link href={'/#location'}>Lokasi Kami</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Ikuti Sosmed A&G Salon</ListHeader>
-            <Link href={'https://www.facebook.com/share/szbiEqro1QfVtjtz/?mibextid=qi2Omg'} isExternal display="flex" alignItems="center" mr={4}>
+            <Link href={'https://www.facebook.com/share/1Fxuh79czJ/?mibextid=wwXIfr'} isExternal display="flex" alignItems="center" mr={4}>
         <Icon as={FaFacebook} w={4} h={4} mr={2} color="blue.600" />
         Facebook
       </Link>
-      <Link href={'https://www.instagram.com/master_silverclass?igsh=YzQyb3NiOXNyNmth'} isExternal display="flex" alignItems="center" mr={4}>
+      <Link href={'https://www.instagram.com/a.g_salon2025?igsh=bmQ4MThwNmEybzh5&utm_source=qr'} isExternal display="flex" alignItems="center" mr={4}>
         <Icon as={FaInstagram} w={4} h={4} mr={2} color="pink.500" />
         Instagram
       </Link>
-      <Link href={'https://www.tiktok.com/@silver.master.class?_t=8nF84p4260e&_r=1'} isExternal display="flex" alignItems="center">
+      <Link href={'https://www.tiktok.com/@ag_salon.est2025?_t=ZS-8xRrn8jPvt3&_r=1'} isExternal display="flex" alignItems="center">
         <Icon as={FaTiktok} w={4} h={4} mr={2} color="black" />
         TikTok
       </Link>

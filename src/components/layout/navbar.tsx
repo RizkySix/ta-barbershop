@@ -148,7 +148,7 @@ export default function Navbar() {
     _selected={{ color: 'white', bg: '#b0662c' }}
     _hover={{ bg: '#b0662c', color: 'white' }}
   >
-    <span>Home</span>
+    <span>Beranda</span>
   </Tab>
   <Tab
     fontSize={{ base: 'xs', md: 'md' }}
@@ -176,7 +176,7 @@ export default function Navbar() {
     _selected={{ color: 'white', bg: '#b0662c' }}
     _hover={{ bg: '#b0662c', color: 'white' }}
   >
-    <span>Galleri</span>
+    <span>Galeri</span>
   </Tab>
 </TabList>
 

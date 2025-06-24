@@ -34,7 +34,7 @@ export function Hero() {
             Beautify Your Beauty
           </Text>
           <Text fontSize={{ base: "xs", md: "md" }} fontWeight="bold" color="white" textAlign="center" textDecoration="underline" cursor="pointer">
-            <Link href="#location">LOCATION</Link>
+            <Link href="#location">LOKASI</Link>
           </Text>
         </Flex>
       </Box>

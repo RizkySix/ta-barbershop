@@ -88,7 +88,7 @@ export function Services() {
   // }
 
   const toBooking = () => {
-    const phoneNumber = "6287762582176";
+    const phoneNumber = "6282147223843";
     const message =
       "Halo, saya ingin booking atau bertanya layanan di A&G Salon";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
