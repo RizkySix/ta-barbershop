@@ -13,7 +13,7 @@ export default function BookingForm() {
 
      <div className="">
         <div className="hero  ">
-        <Hero image="/hero-place1.jpeg" />
+        <Hero image="/tentang-kami.jpg" />
         </div>
 
         <div className="content flex flex-col lg:gap-4">

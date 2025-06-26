@@ -7,7 +7,32 @@ export default function SimpleNavbar() {
   return (
     <Box as="section" className='navbar' position="sticky" top="0" zIndex="50">
       <Box w="full" p={3} bg="white" borderBottom="1px" borderColor="gray.200" display="flex" flexDirection="column" gap={3} mx="auto">
-      <Link href="/" display="flex" flexDirection="column" alignItems="center" textDecoration="none" _hover={{ textDecoration: 'none', color:'black' }}>
+        {/* KIRI: Dekoratif gradient */}
+                <Box
+                  className="hidden md:block"
+                  position="absolute"
+                  left="0"
+                  top="0"
+                  height="100%"
+                  width="50%"
+                  zIndex="0"
+                  bgGradient="linear(to-r, #eac7a1, transparent)"
+        
+                />
+                
+                {/* KANAN: Dekoratif gradient */}
+                <Box
+                  className="hidden md:block"
+                  position="absolute"
+                  right="0"
+                  top="0"
+                  height="100%"
+                  width="50%"
+                  zIndex="0"
+                   bgGradient="linear(to-l, #eac7a1, transparent)"
+        
+                />
+      <Link href="/" display="flex" flexDirection="column" alignItems="center" zIndex={50} textDecoration="none" _hover={{ textDecoration: 'none', color:'black' }}>
        <Image src="/logo.png"  width={{ base: '60px', md: '80px' }}
                      height={{ base: '60px', md: '80px' }} alt="Logo" />
           

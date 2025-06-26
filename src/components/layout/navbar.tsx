@@ -101,42 +101,78 @@ export default function Navbar() {
       <Tabs isFitted size="md" variant="enclosed" index={pageIndex} onChange={handleTabsChange}>
         {/* Header Section */}
         <Flex
-          width="full"
-          height={{ base : "80px" , md: "112px"}}
-          p="3"
-          bg="white"
-          borderBottom="1px"
-          borderColor="gray.200"
-          alignItems="center"
-          justifyContent="space-between"
+        width="full"
+        height={{ base: "80px", md: "112px" }}
+        px="4"
+        bg="white"
+        borderBottom="1px"
+        borderColor="gray.200"
+        alignItems="center"
+        justifyContent="space-between"
+        position="relative"
+        className="shadow-sm"
+      >
+
+        
+        {/* KIRI: Dekoratif gradient */}
+        <Box
+          className="hidden md:block"
+          position="absolute"
+          left="0"
+          top="0"
+          height="100%"
+          width="50%"
+          zIndex="0"
+          bgGradient="linear(to-r, #eac7a1, transparent)"
+
+        />
+        
+        {/* KANAN: Dekoratif gradient */}
+        <Box
+          className="hidden md:block"
+          position="absolute"
+          right="0"
+          top="0"
+          height="100%"
+          width="50%"
+          zIndex="0"
+           bgGradient="linear(to-l, #eac7a1, transparent)"
+
+        />
+
+        {/* Hamburger Menu */}
+        <IconButton
+          aria-label="Open menu"
+          icon={<MdMenu size={28} />}
+          variant="ghost"
+          onClick={onOpen}
+          zIndex="10"
+        />
+
+        {/* Logo */}
+        <Link
+          href="/"
+          style={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            zIndex: 10,
+          }}
         >
-          {/* Hamburger Menu */}
-          <IconButton
-            aria-label="Open menu"
-            icon={<MdMenu size={28} />} // Ganti icon & perbesar
-            variant="ghost"
-            onClick={onOpen}
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={{ base: "60px", md: "80px" }}
+            height={{ base: "60px", md: "80px" }}
           />
+        </Link>
 
-          {/* Logo di tengah */}
-          <Link
-            href="/"
-            style={{
-              position: 'absolute',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Image src="/logo.png"  width={{ base: '60px', md: '80px' }}
-              height={{ base: '60px', md: '80px' }} alt="Logo" />
-          </Link>
-
-          {/* Tempat dummy biar logo tetap di tengah */}
-          <Box width="40px" /> {/* Biar spasi kanan sama dengan kiri */}
-        </Flex>
+        {/* Dummy box supaya logo tetap center */}
+        <Box width="40px" zIndex="10" />
+      </Flex>
 
         {/* Tab List */}
         <TabList bg="white" color="black">
