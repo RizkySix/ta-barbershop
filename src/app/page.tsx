@@ -8,6 +8,15 @@ import { Box, Flex } from '@chakra-ui/react'
 import { VideoCompanyProfile } from './components/video'
 
 export default function Home() {
+  const arr = [1,2,3,4,5]
+  for (let i in arr ) {
+    if(arr[i] % 2 === 0) {
+      arr.splice(Number(i), 1)
+    }
+  }
+
+  console.log(arr)
+
   return (
     <>
       <Navbar />
